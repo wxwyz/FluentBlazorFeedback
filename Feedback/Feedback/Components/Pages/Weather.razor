@@ -1,0 +1,13 @@
+﻿@page "/weather"
+
+<FluentAnchor Href="#" OnClick="EnableEdit">Edit</FluentAnchor>
+<div>@(_editable ? "true" : false)</div>
+
+@code {
+    private bool _editable = false;
+
+    private async Task EnableEdit()
+    {
+        _editable = true;
+    }
+}
