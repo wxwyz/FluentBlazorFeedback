@@ -1,0 +1,43 @@
+﻿@page "/tabminsizefeedback-with-height-client"
+@rendermode InteractiveWebAssembly
+
+<h3>Feedback - With Height Set</h3>
+
+<FluentMessageBar>
+    Viewing the first and third tabs render as expected, because the given panel height is sufficient. <br />
+    However, when you switch to the second tab, css overflow kicks in, and you end up with what I believe is a poor user experience.
+</FluentMessageBar>
+
+<FluentTabs Orientation="Orientation.Vertical" Height="400px">
+    <FluentTab Id="tab-general" Label="General">
+        <FluentStack Orientation="Orientation.Vertical">
+            @for (int i = 0; i < 3; i++)
+            {
+                <div>
+                    <FluentTextField Label="@($"Field {i + 1}")" />
+                </div>
+            }
+        </FluentStack>
+    </FluentTab>
+    <FluentTab id="tab-long" Label="Long Content">
+        <FluentStack Orientation="Orientation.Vertical">
+            @for (int i = 0; i < 10; i++)
+            {
+                <div>
+                    <FluentTextField Label="@($"Field {i + 1}")" />
+                </div>
+            }
+        </FluentStack>
+    </FluentTab>
+    <FluentTab id="tab-short" Label="Short Content">
+        <FluentStack Orientation="Orientation.Vertical">
+            <div>
+                <FluentTextField Label="Field 1" />
+            </div>
+        </FluentStack>
+    </FluentTab>
+</FluentTabs>
+
+@code {
+
+}

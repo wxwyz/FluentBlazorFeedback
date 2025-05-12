@@ -1,0 +1,44 @@
+﻿@page "/tabminsizefeedback-existing-client"
+@rendermode InteractiveWebAssembly
+
+<h3>Feedback - Existing</h3>
+
+<FluentMessageBar>
+    Viewing the first two tabs render as expected, because their panel uses more height than the tab's.<br />
+    However, when you switch to the third tab, the panel is short, overflow kicks in, and no menu provider with InteractiveWebAssembly is available.<br />
+    This is by design, no doubt, however documentation on this is sparse. Because of the design, I believe a Minimum value would be helpful.
+</FluentMessageBar>
+
+<FluentTabs Orientation="Orientation.Vertical">
+    <FluentTab Id="tab-general" Label="General">
+        <FluentStack Orientation="Orientation.Vertical">
+            @for (int i = 0; i < 3; i++)
+            {
+                <div>
+                    <FluentTextField Label="@($"Field {i + 1}")" />
+                </div>
+            }
+        </FluentStack>
+    </FluentTab>
+    <FluentTab id="tab-long" Label="Long Content">
+        <FluentStack Orientation="Orientation.Vertical">
+            @for (int i = 0; i < 10; i++)
+            {
+                <div>
+                    <FluentTextField Label="@($"Field {i + 1}")" />
+                </div>
+            }
+        </FluentStack>
+    </FluentTab>
+    <FluentTab id="tab-short" Label="Short Content">
+        <FluentStack Orientation="Orientation.Vertical">
+            <div>
+                <FluentTextField Label="Field 1" />
+            </div>
+        </FluentStack>
+    </FluentTab>
+</FluentTabs>
+
+@code {
+
+}

@@ -1,0 +1,47 @@
+﻿@page "/tabminsizefeedback-proposed-client"
+@rendermode InteractiveWebAssembly
+
+<h3>Feedback - Proposed</h3>
+
+<FluentMessageBar>
+    In scenario's when tabs can shrink and grow a minimum value can be extremely helpful.<br />
+    This can be achieved with the Style property, no doubt. <br />
+    However, due to the nature of the component, and the by design switch to a menu, supporting Minimum values has a benefit.<br />
+    This can give you a direct place to possibly provide information, with comments perhaps, to the user on how they could be useful.<br />
+    <br />
+    In the end, more documentation on this would be acceptable as well. I feel the properties would be a bit more helpful. Just my 2 cents.
+</FluentMessageBar>
+
+<FluentTabs Orientation="Orientation.Vertical" Style="min-height:200px;">
+    <FluentTab Id="tab-general" Label="General">
+        <FluentStack Orientation="Orientation.Vertical">
+            @for (int i = 0; i < 3; i++)
+            {
+                <div>
+                    <FluentTextField Label="@($"Field {i + 1}")" />
+                </div>
+            }
+        </FluentStack>
+    </FluentTab>
+    <FluentTab id="tab-long" Label="Long Content">
+        <FluentStack Orientation="Orientation.Vertical">
+            @for (int i = 0; i < 10; i++)
+            {
+                <div>
+                    <FluentTextField Label="@($"Field {i + 1}")" />
+                </div>
+            }
+        </FluentStack>
+    </FluentTab>
+    <FluentTab id="tab-short" Label="Short Content">
+        <FluentStack Orientation="Orientation.Vertical">
+            <div>
+                <FluentTextField Label="Field 1" />
+            </div>
+        </FluentStack>
+    </FluentTab>
+</FluentTabs>
+
+@code {
+
+}
